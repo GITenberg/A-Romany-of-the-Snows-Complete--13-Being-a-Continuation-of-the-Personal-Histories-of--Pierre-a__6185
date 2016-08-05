@@ -1,0 +1,37 @@
+_repo: A-Romany-of-the-Snows-Complete--13-Being-a-Continuation-of-the-Personal-Histories-of--Pierre-a__6185
+_version: 0.0.1
+creator:
+  author:
+    agent_name: Parker, Gilbert
+    aliases:
+    - Parker, Gilbert, Sir, bart.
+    - Parker, Horatio Gilbert
+    birthdate: 1862
+    deathdate: 1932
+    gutenberg_agent_id: '1285'
+    url: http://www.gutenberg.org/2009/agents/1285
+    wikipedia: http://en.wikipedia.org/wiki/Gilbert_Parker
+description: ''
+gutenberg_issued: '2004-11-16'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '6185'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcc 'PS'
+- !lcsh 'Short stories, Canadian'
+- !lcsh 'Canada, Northern -- Fiction'
+- GITenberg
+tableOfContents: Across the jumping sandhills -- A lovely bully -- The filibuster
+  -- The gift of the simple king -- Malachi -- The lake of the Great Slave -- The
+  Red Patrol -- The going of the white swan -- At Bamber's Boom -- The Bridge House
+  -- The epaulettes -- The house with the broken shutter -- The finding of Fingall
+  -- Three commandments in the vulgar tongue -- Little Babiche -- At Point o' Bugles
+  -- The spoil of the puma -- The trail of the sun dogs -- The pilot of Belle Amour
+  -- The cruise of the "Ninety-Nine" -- Romany of the snows -- The plunderer.
+title: "A Romany of the Snows, Complete\r\nBeing a Continuation of the Personal Histories\
+  \ of \"Pierre and His People\" and the Last Existing Records of Pretty Pierre"
+url: http://www.gutenberg.org/ebooks/6185
