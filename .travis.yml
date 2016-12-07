@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: r40or4xDSR8JKjE3KFTYs3v7yUWoRlUXyxhbeFMuMaizQ9peC715/rX6We3OHkWS+MY9cZKBkBDBUszdd73TwWZVq7S0kTLBggQ2d7xUN/mXRacNDRnORdgQlX+21xC18MH+eSZm9KZ6arDk8sEETWnny+fJBghzaXkBOEsk+EfPw/SP60Aqqf0tVg9Jv3tYl+nIzGbC25GfkbLLT4mden8tiROPw3l4z4FBXRU4+rQGm0a4QRiTxmFAS6cCT5IBpyIVPlc804JXatK2630kqQnjrpMRnQkZ3Ipfbn9xmHTNxMixCGHTFwhaw1H7FWSXgK6hkwBJ0gD0vrWGe8V7c+eVKSswZwSWQOSbKMofng8sn/fzQeV2smpbIHXSd0+Pfe8/cGqlOCw6IejkR01H8BZPiIhwAidGHeYRm+B+Tux/MQU84S51n8vpT2QCKT+FVwX7Fcow2GnicTIztQqa1M37v5BtlR8SmblIYNKXGR9pfLJ/TvHhWLZm9xo/03+sFJ/XUzEsqnaYyIaA63eeqy4wJ/fYSGAeO9x5h7hgtqEGBKjejx8tluKO7W0eLFmuuSO9nj2NBu/4Q33SqapHS9FZuiYR0+v3WKzN5uN7fX1rMBxYiF4uzECitAs94ynCIvfPVL2DcmdMxbU+zOUBmApM5PXLlXTmLhPoy0Jd68E=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/A-Romany-of-the-Snows-Complete--13-Being-a-Continuation-of-the-Personal-Histories-of--Pierre-a__6185
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
